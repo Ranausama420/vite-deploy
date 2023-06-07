@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 interface RadioButton {
@@ -96,6 +96,7 @@ const Radio: React.FC<RadioProps> = ({ selectedRadioButton, setSelectedRadioButt
   const handleRadioButtonChange = (index: number) => {
     setSelectedRadioButton(index);
     console.log(`Clicked Radio Button: ${index}`);
+    console.log(`selectedRadioButton: ${selectedRadioButton}`);
   };
 
 

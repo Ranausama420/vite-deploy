@@ -94,9 +94,9 @@ const Loader = styled.div`
 const FAQs: React.FC = () => {
   const [expandedIndex, setExpandedIndex] = useState<number>(-1);
   const [faqData, setFaqData] = useState<FAQItem[]>([]);
+  const [isResetting, setIsResetting] = useState(false);
 
-
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  // const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   // const handleAccordionToggle = (index: number) => {
@@ -106,6 +106,7 @@ const FAQs: React.FC = () => {
 
   const fetchData = async () => {
     console.log('fetchData')
+    setIsResetting(true);
     try {
       setIsLoading(true);
       const response = await axios.post('https://aichatbot.herokuapp.com/readdb/', {}, {
@@ -160,6 +161,7 @@ const FAQs: React.FC = () => {
       console.error('Error loading data:', error);
     } finally {
       setIsLoading(false); // Set isLoading to false after the request is completed (whether success or error)
+      setIsResetting(false);
     }
   };
 
@@ -184,7 +186,7 @@ const FAQs: React.FC = () => {
   // };
 
 
-  const [isResetting, setIsResetting] = useState(false);
+  
 
   // // Reset conversation
   // const resetConversation = async () => {

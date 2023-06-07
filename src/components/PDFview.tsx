@@ -89,12 +89,11 @@ const TextArea = styled.textarea<TextAreaProps>`
 `;
 
 interface ExtractedPDFProps {
-  text: string;
   width: number;
   height: number;
 }
 
-const ExtractedPDF: React.FC<ExtractedPDFProps> = ({ text, width, height }) => {
+const ExtractedPDF: React.FC<ExtractedPDFProps> = ({ width, height }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [pdfData, setPdfData] = useState('');
 
@@ -123,7 +122,6 @@ const ExtractedPDF: React.FC<ExtractedPDFProps> = ({ text, width, height }) => {
     loadData();
 
   }, []);
-  const index=1;
   return (
     <Container width={width} height={height}>
       <Title>Extracted PDF</Title>
