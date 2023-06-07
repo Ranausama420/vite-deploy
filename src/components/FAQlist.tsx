@@ -1,9 +1,9 @@
 import React, { useState,useEffect } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import styled, { keyframes } from "styled-components";
-import stored_data from "./stored_faq.json"
-import { FaLink } from 'react-icons/fa';
-import { Accordion, Card, Button } from 'react-bootstrap';
+// import stored_data from "./stored_faq.json"
+// import { FaLink } from 'react-icons/fa';
+// import { Accordion, Card, Button } from 'react-bootstrap';
 import axios from 'axios';
 interface FAQItem {
   question: string;
@@ -99,9 +99,9 @@ const FAQs: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const handleAccordionToggle = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+  // const handleAccordionToggle = (index: number) => {
+  //   setActiveIndex(activeIndex === index ? null : index);
+  // };
   
 
   const fetchData = async () => {
@@ -177,40 +177,40 @@ const FAQs: React.FC = () => {
       setExpandedIndex(index);
     }
   };
-  const handleClick = (question: string) => {
-    // Perform actions using the question value
-    console.log('Clicked on question:', question);
+  // const handleClick = (question: string) => {
+  //   // Perform actions using the question value
+  //   console.log('Clicked on question:', question);
    
-  };
+  // };
 
 
   const [isResetting, setIsResetting] = useState(false);
 
-  // Reset conversation
-  const resetConversation = async () => {
-    setIsResetting(true);
+  // // Reset conversation
+  // const resetConversation = async () => {
+  //   setIsResetting(true);
 
-    await axios
-      .get("https://aichatbot.herokuapp.com/reset-qa", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => {
-        if (res.status == 200) {
-          // setMessages([]);
-          console.log('rest')
-          useEffect(() => {
+  //   await axios
+  //     .get("https://aichatbot.herokuapp.com/reset-qa", {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     })
+  //     .then((res) => {
+  //       if (res.status == 200) {
+  //         // setMessages([]);
+  //         console.log('rest')
+  //         useEffect(() => {
     
-            fetchData();
+  //           fetchData();
         
-          }, []);
-        }
-      })
-      .catch((err) => {});
+  //         }, []);
+  //       }
+  //     })
+  //     .catch((err) => {});
 
-    setIsResetting(false);
-  };
+  //   setIsResetting(false);
+  // };
 
 
   return (

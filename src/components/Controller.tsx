@@ -1,4 +1,4 @@
-import React,{ useRef, useState, useEffect } from "react";
+import React,{ useState } from "react";
 import Title from "./Title";
 import axios from "axios";
 import Chatwidget from "./chatwidget";
@@ -35,7 +35,7 @@ const Controller: React.FC<ControllerProps> = ({ radio }) => {
   
 
     try {
-    const response = await axios.post(url, null, {
+    await axios.post(url, null, {
       params: {
         msg: msgtext
       }
